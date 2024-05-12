@@ -23,41 +23,68 @@
   
 
     <script>
-      $(document).ready(function() {
+      $(document).ready(function(FuncionAgregarCarrito) {
         // Inicializar total en 0
         var total = 0;
 
         // Manejar clic en botones "Agregar al Carrito" de todas las tarjetas
-        $('.btnAgregarCarrito').click(function() {
-          var cardproduct = $(this).closest('.card');
-          var productName = cardproduct.find('.card-title').text(); 
-          var productPriceText = cardproduct.find('.text-muted').text(); 
-          var productPrice = parseFloat(productPriceText.replace('$', '').replace('.', '')); 
+        $(".btnAgregarCarrito").click(function() {
+          var cardproduct = $(this).closest(".card");
+          var productName = cardproduct.find(".card-title").text(); 
+          var productPriceText = cardproduct.find(".text-muted").text(); 
+          var productPrice = parseFloat(productPriceText.replace("$", "").replace(".", "")); 
 
-          $('#cart').append('<li class="list-group-item">' + productName + ' - $' + productPrice.toFixed(0) + ' <button class="btn btn-sm btn-danger float-end remove-product">Eliminar</button></li>');
+          $("#cart").append("<li class='list-group-item'>" + productName + " - $" + productPrice.toFixed(0) + " <button class='btn btn-sm btn-danger float-end remove-product'>Eliminar</button></li>");
 
+          
           // Sumar al total
           total += productPrice;
-          $('#total').text('$' + total.toFixed(0)); // Mostrar el total redondeado hacia abajo sin decimales
+          $("#total").text("$" + total.toFixed(0)); // Mostrar el total redondeado hacia abajo sin decimales
         });
 
         // Manejar clic en botones "Eliminar" dentro del carrito
-        $('#cart').on('click', '.remove-product', function() {
-          var productPriceText = $(this).closest('li').text().match(/\$\d+(\.\d+)?/)[0]; // Extraer el texto del precio
-          var productPrice = parseFloat(productPriceText.replace('$', '')); // Convertir el precio a número
+        $("#cart").on("click", ".remove-product", function() {
+          var productPriceText = $(this).closest("li").text().match(/\$\d+(\.\d+)?/)[0]; // Extraer el texto del precio
+          var productPrice = parseFloat(productPriceText.replace("$", "")); // Convertir el precio a número
 
           // Restar del total
           total -= productPrice;
-          $('#total').text('$' + total.toFixed(0)); // Mostrar el total redondeado hacia abajo sin decimales
+          $("#total").text("$" + total.toFixed(0)); // Mostrar el total redondeado hacia abajo sin decimales
 
           // Eliminar el producto del carrito
-          $(this).closest('li').remove();
+          $(this).closest("li").remove();
+        });
+
+        
+      });
+
+      $(document).ready(function(FuncionMostrarSideBar){
+        $("#toggleCart").click(function(){
+            $("#cartSidebar").toggle("slow");
         });
       });
 
+      $(document).ready(function(FuncionAparecerBtnComprar){
+        $(".btnAgregarCarrito").click(function(){
+          
+          if ($("#cart").length > 0) {
+                $("#btnComprar").show(); // Mostrar el botón si hay productos en el carrito
+            } 
+          else {
+                $("#btnComprar").hide(); // Ocultar el botón si no hay productos en el carrito
+            }
+        });
+      });
 
+      $(document).ready(function(){
+        $("#btnComprar").click(function(){
 
-      
+          var TotalCompra = parseFloat($('#total').text().replace("$", ""));
+          if($("#cart").length > 0){
+            alert("Su total a pagar es : $"+TotalCompra);
+          }
+        });
+      });      
     </script>
   </head>
   <body>
@@ -114,7 +141,7 @@
 
     
 <header data-bs-theme="dark">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
         <div class="container-fluid">
           <a class="navbar-brand" href="inicio.html">ChalaStore</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,6 +155,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="productos.html">Productos</a>
               </li>
+              <li>
+                <button id="toggleCart" class="btn btn-outline-dark" style="width: auto; height: auto;">
+                    <img src="img/anadir-a-la-cesta.png" width="25px" height="25px">
+                    
+                </button>
+              </li>
             </ul>
             <ul class="nav justify-content-end">
               <li class="nav-item">
@@ -136,7 +169,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="login.html">Login</a>
               </li>
+
              </ul>
+             
           </div>
         </div>
       </nav>
@@ -155,113 +190,112 @@
     
     
     <section class="container">
-
-        <!--SIDE BAR PARA HACER EL CARRO-->
-        <div class="row" >
-          <!-- Sidebar -->
-          <div class="col-md-4">
+        <!--SIDE BAR PARA HACER EL CARRO-->  
+          <div id="cartSidebar" class="col-md-3" style="display: none; float: left;">
             <h3>Carrito de Compras</h3>
             <ul id="cart" class="list-group">
-              <!-- Los productos agregados se mostrarán aquí -->
+                <!-- Los productos agregados se mostrarán aquí -->
             </ul>
             <p>Total: <span id="total">$0</span></p>
+            <button id="btnComprar" class="btn btn-primary" style="display: none;">Comprar</button>
           </div>
     <!--ESTO SON LOS PRODUCTOS MOSTRADOS CON CARDS-->
-        <div class="row">
-          <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-              <div class="card h-100 mb-4 shadow-sm" id="txtProduc1">
-                  <img src="img/stock/jeans/jinnegro.jpg" height="auto" class="card-img-top" alt="Producto 1">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                <div class="card h-100 mb-4 shadow-sm" id="txtProduc1">
+                    <img src="img/stock/jeans/jinnegro.jpg" height="auto" class="card-img-top" alt="Producto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Cargo Jeans</h5>
+                        <p class="card-text">Cargo jeans con costura blanca</p>
+                        <div class="d-flex justify-content-between align-items-center ">
+                            <div class="btn-group align-text-bottom">
+                                <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                            </div>
+                            <small class="text-muted">$35.990</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+              <div class="card h-100 mb-4 shadow-sm"id="txtProduc2">
+                  <img src="img/stock/jeans/jinclaro.jpg" height="auto" class="card-img-top" alt="Producto 2">
                   <div class="card-body">
-                      <h5 class="card-title">Cargo Jeans</h5>
-                      <p class="card-text">Cargo jeans con costura blanca</p>
-                      <div class="d-flex justify-content-between align-items-center ">
-                          <div class="btn-group align-text-bottom">
-                              <input type="button" class="btnAgregarCarrito" value="Agregar">
-                          </div>
-                          <small class="text-muted">$35.990</small>
+                      <h5 class="card-title">Jeans</h5>
+                      <p class="card-text">Jeans mezclilla</p>
+                      <div class="d-flex justify-content-between align-items-center" >
+                      <div class="btn-group">
+                        <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                      </div>
+                      <small class="text-muted">$29.990</small>
                       </div>
                   </div>
               </div>
-          </div>
-          <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-            <div class="card h-100 mb-4 shadow-sm"id="txtProduc2">
-                <img src="img/stock/jeans/jinclaro.jpg" height="auto" class="card-img-top" alt="Producto 2">
-                <div class="card-body">
-                    <h5 class="card-title">Jeans</h5>
-                    <p class="card-text">Jeans mezclilla</p>
-                    <div class="d-flex justify-content-between align-items-center" >
-                    <div class="btn-group">
-                      <input type="button" class="btnAgregarCarrito" value="Agregar">
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+              <div class="card h-100 mb-4 shadow-sm" id="txtProduc3">
+                  <img src="img/stock/polera/poleraazul.jpg" height="Auto" class="card-img-top" alt="Producto 3">
+                  <div class="card-body">
+                      <h5 class="card-title">Polera</h5>
+                      <p class="card-text">Polera Azul con estampado. Oversize Fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                      </div>
+                      <small class="text-muted">$19.990</small>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                  <div class="card h-100 mb-4 shadow-sm" id="txtProduc4">
+                    <img src="img/stock/polera/Polerablanca.jpg" height="auto" class="card-img-top" alt="Producto 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Polera</h5>
+                      <p class="card-text">Polera Blanca con estampado. Relaxed fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                        </div>
+                      <small class="text-muted">$19.990</small>
+                      </div>
                     </div>
-                    <small class="text-muted">$29.990</small>
+                  </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                  <div class="card h-100 mb-4 shadow-sm" id="txtProduc5">
+                    <img src="img/stock/polera/poleranegra.jpg" height="auto" class="card-img-top" alt="Producto 5">
+                    <div class="card-body">
+                      <h5 class="card-title">Polera</h5>
+                      <p class="card-text">Polera negra. Relaxed fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                        </div>
+                      <small class="text-muted">$13.990</small>
+                      </div>
                     </div>
-                </div>
+                  </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                  <div class="card h-100 mb-4 shadow-sm"id="txtProduc6">
+                    <img src="img/stock/poleron/poleronnaranja.jpg" height="auto" class="card-img-top" alt="Producto 6">
+                    <div class="card-body">
+                      <h5 class="card-title">poleron</h5>
+                      <p class="card-text">Poleron naranja con estampado. Regular fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                        </div>
+                      <small class="text-muted">$23.000</small>
+                      </div>
+                    </div>
+                  </div>
             </div>
           </div>
-          <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-            <div class="card h-100 mb-4 shadow-sm" id="txtProduc3">
-                <img src="img/stock/polera/poleraazul.jpg" height="Auto" class="card-img-top" alt="Producto 3">
-                <div class="card-body">
-                    <h5 class="card-title">Polera</h5>
-                    <p class="card-text">Polera Azul con estampado. Oversize Fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <input type="button" class="btnAgregarCarrito" value="Agregar">
-                    </div>
-                    <small class="text-muted">$19.990</small>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-                <div class="card h-100 mb-4 shadow-sm" id="txtProduc4">
-                  <img src="img/stock/polera/Polerablanca.jpg" height="auto" class="card-img-top" alt="Producto 4">
-                  <div class="card-body">
-                    <h5 class="card-title">Polera</h5>
-                    <p class="card-text">Polera Blanca con estampado. Relaxed fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <input type="button" class="btnAgregarCarrito" value="Agregar">
-                      </div>
-                    <small class="text-muted">$19.990</small>
-                    </div>
-                  </div>
-                </div>
-          </div>
-          <div class="py-4 ccol-sm-12 col-md-4 col-lg-4">
-                <div class="card h-100 mb-4 shadow-sm" id="txtProduc5">
-                  <img src="img/stock/polera/poleranegra.jpg" height="auto" class="card-img-top" alt="Producto 5">
-                  <div class="card-body">
-                    <h5 class="card-title">Polera</h5>
-                    <p class="card-text">Polera negra. Relaxed fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <input type="button" class="btnAgregarCarrito" value="Agregar">
-                      </div>
-                    <small class="text-muted">$13.990</small>
-                    </div>
-                  </div>
-                </div>
-          </div>
-          <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-                <div class="card h-100 mb-4 shadow-sm"id="txtProduc6">
-                  <img src="img/stock/poleron/poleronnaranja.jpg" height="auto" class="card-img-top" alt="Producto 6">
-                  <div class="card-body">
-                    <h5 class="card-title">poleron</h5>
-                    <p class="card-text">Poleron naranja con estampado. Regular fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <input type="button" class="btnAgregarCarrito" value="Agregar">
-                      </div>
-                    <small class="text-muted">$23.000</small>
-                    </div>
-                  </div>
-                </div>
-          </div>
-
-          
+        </div>
       </div>
-
+        
   
 
    
