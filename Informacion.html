@@ -1,28 +1,31 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
+  <head>
+    <script src="bootstrap-5.3.3/site/static/docs/5.3/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Inicia sesion Chalastore</title>
+    <title>Informacion</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="shortcut icon" href="img/icono.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
     
-    <link href="css/sign-in.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/carousel.css" rel="stylesheet">
   </head>
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <svg xmlns="img" class="d-none">
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
       </symbol>
@@ -52,7 +55,7 @@
         <li>
           <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
             <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Blanco
+            Claro
             <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
           </button>
         </li>
@@ -73,25 +76,26 @@
       </ul>
     </div>
 
+    
 <header data-bs-theme="dark">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">ChalaStore</a>
+          <a class="navbar-brand" href="inicio.html">ChalaStore</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="inicio.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="productos.html">Productos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Informacion.html">Informacion</a>
-              </li>
-            </ul>
+             <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="inicio.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="productos.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Informacion.html">Informacion</a>
+                </li>
+              </ul>
             <ul class="nav justify-content-end">
               <li class="nav-item">
                 <a class="nav-link" href="registro.html">Registrarse</a>
@@ -103,32 +107,65 @@
           </div>
         </div>
       </nav>
-</header>    
-<main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="img/icono.png" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Inicia sesion</h1>
+</header>
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Correo Electronico</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Contraseña</label>
+
+<main class="container my-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <img src="img/icono.png" class="img-fluid rounded" alt="Imagen a la izquierda">
+        </div>
+
+        <div class="col-lg-8 mx-auto">
+        <h1 class="display-4 mb-4">Acerca de ChalaStore</h1>
+        <p class="lead">ChalaStore es una tienda en línea comprometida a ofrecer lo mejor en moda y accesorios a precios accesibles.</p>
+        <p>Desde nuestra fundación, nos hemos dedicado a proporcionar productos de alta calidad que reflejen las últimas tendencias de moda. Nuestro objetivo es brindar una experiencia de compra satisfactoria a nuestros clientes, ofreciendo una amplia selección de productos y un servicio excepcional.</p>
+        <p>En ChalaStore, creemos en la importancia de la moda como una forma de expresión personal. Nos esforzamos por ofrecer una variedad de estilos y opciones para adaptarnos a los gustos y necesidades de cada individuo.</p>
+        <p>Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nosotros. ¡Estamos aquí para ayudarte!</p>
+        </div>
+        
     </div>
 
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Recordar
-      </label>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+        <h1 class="display-4 mb-4">Fundadores</h1>
+        <p class="lead">Los fundadores de ChalaStore magos antiguos ya muertos hace eones.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, explicabo maiores neque doloremque minima molestiae fugit beatae molestias ipsa dolor minus necessitatibus aliquid cum itaque quo sed delectus, eum iusto.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, ratione eius corrupti earum cupiditate nam. Ducimus quia magnam, quae quo deserunt similique deleniti voluptates amet blanditiis quod accusamus rerum praesentium!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi placeat mollitia autem! Deleniti aspernatur officia cumque cum at eum voluptates dicta odit, illo vitae amet maiores asperiores nulla iusto deserunt.</p>
+        </div>
+        <div class="col-lg-3">
+            <img src="img/icono.png" class="img-fluid rounded" alt="Imagen a la derecha">
+        </div>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Iniciar sesion</button>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-  </form>
+
+    
+
+    <div class="row">
+        <div class="col-lg-3">
+            <img src="img/icono.png" class="img-fluid rounded" alt="Imagen a la izquierda2">
+        </div>
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4 mb-4">Locacion</h1>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, nihil nisi omnis rem at ipsa vel ratione optio laboriosam eveniet esse sequi sit, natus soluta harum quia possimus. Reprehenderit, quis!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione consectetur quis similique enim hic, sint perspiciatis quas corrupti ipsum, aperiam possimus dolorem dignissimos, recusandae nostrum. Fugit delectus qui reiciendis deleniti.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione consectetur quis similique enim hic, sint perspiciatis quas corrupti ipsum, aperiam possimus dolorem dignissimos, recusandae nostrum. Fugit delectus qui reiciendis deleniti.</p>
+
+
+        </div>
+    </div>
+
+
 </main>
-<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+<main>
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2017–2024 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+</main>
+<script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
 </html>

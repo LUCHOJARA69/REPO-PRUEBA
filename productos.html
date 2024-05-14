@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="bootstrap-5.3.3/site/static/docs/5.3/assets/js/color-modes.js"></script>
-
+  <head>
+    <script src="bootstrap-5.3.3/site/static/docs/5.3/assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -9,98 +9,18 @@
     <meta name="generator" content="Hugo 0.122.0">
     <title>Productos</title>
 
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link rel="shortcut icon" href="img/icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/productos.js"></script>
 
-    
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
-<link href="bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
-
-      .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link href="bootstrap-5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
+
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -155,39 +75,45 @@
 
     
 <header data-bs-theme="dark">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
         <div class="container-fluid">
           <a class="navbar-brand" href="inicio.html">ChalaStore</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-             <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="inicio.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="prod">Productos</a>
+                <a class="nav-link" href="productos.html">Productos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="carrito.html">Mi Carrito</a>
+                <a class="nav-link" href="Informacion.html">Informacion</a>
+              </li>
+              <li>
+                <button id="toggleCart" class="btn btn-outline-dark" style="width: auto; height: auto;">
+                    <img src="img/anadir-a-la-cesta.png" width="25px" height="25px">
+                </button>
               </li>
             </ul>
             <ul class="nav justify-content-end">
               <li class="nav-item">
-                <a class="nav-link" href="checkout.html">Registrarse</a>
+                <a class="nav-link" href="registro.html">Registrarse</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login.html">Login</a>
               </li>
+
              </ul>
+             
           </div>
         </div>
       </nav>
 </header>
 
 <main>
-
     <header class="p-5 mb-5 bg-light text-center" style="color: black;">
         <img src="img/icono.png" alt="!" width="150px" height="150px">
         <h1 class="display-5 fw-bold">Sección Productos</h1>
@@ -195,112 +121,114 @@
             <p class="lead mb-4">catalogo donde podras observar los productos</p>
         </div>
     </header>
-    <!--ESTO SON LOS PRODUCTOS MOSTRADOS CON CARDS-->
+    
     <section class="container">
-        <div class="row">
-          <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-              <div class="card h-100 mb-4 shadow-sm">
-                  <img src="img/stock/jeans/jinnegro.jpg" height="auto" class="card-img-top" alt="Producto 1">
+        <!--SIDE BAR PARA HACER EL CARRO-->  
+          <div id="cartSidebar" class="col-md-3" style="display: none; float: left;">
+            <h3>Carrito de Compras</h3>
+            <ul id="cart" class="list-group">
+                <!-- Los productos agregados se mostrarán aquí -->
+            </ul>
+            <p>Total: <span id="total">$0</span></p>
+            <button id="btnComprar" class="btn btn-primary" style="display: none;">Comprar</button>
+          </div>
+    <!--ESTO SON LOS PRODUCTOS MOSTRADOS CON CARDS-->
+        <div class="col-md-12">
+          <div class="row">
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                <div class="card h-100 mb-4 shadow-sm" id="txtProduc1">
+                    <img src="img/stock/jeans/jinnegro.jpg" height="auto" class="card-img-top" alt="Producto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Cargo Jeans</h5>
+                        <p class="card-text">Cargo jeans con costura blanca</p>
+                        <div class="d-flex justify-content-between align-items-center ">
+                            <div class="btn-group align-text-bottom">
+                                <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                            </div>
+                            <small class="text-muted">$35.990</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+              <div class="card h-100 mb-4 shadow-sm"id="txtProduc2">
+                  <img src="img/stock/jeans/jinclaro.jpg" height="auto" class="card-img-top" alt="Producto 2">
                   <div class="card-body">
-                      <h5 class="card-title">Cargo Jeans</h5>
-                      <p class="card-text">Cargo jeans con costura blanca</p>
-                      <div class="d-flex justify-content-between align-items-center ">
-                          <div class="btn-group align-text-bottom">
-                              <a class="btn btn-primary " href="#" role="button">Ver</a>
-                              <a class="btn btn-primary" href="#" role="button">Agregar al carrito</a>
-                          </div>
-                          <small class="text-muted">$35.990</small>
+                      <h5 class="card-title">Jeans</h5>
+                      <p class="card-text">Jeans mezclilla</p>
+                      <div class="d-flex justify-content-between align-items-center" >
+                      <div class="btn-group">
+                        <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                      </div>
+                      <small class="text-muted">$29.990</small>
                       </div>
                   </div>
               </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+              <div class="card h-100 mb-4 shadow-sm" id="txtProduc3">
+                  <img src="img/stock/polera/poleraazul.jpg" height="Auto" class="card-img-top" alt="Producto 3">
+                  <div class="card-body">
+                      <h5 class="card-title">Polera</h5>
+                      <p class="card-text">Polera Azul con estampado. Oversize Fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                      </div>
+                      <small class="text-muted">$19.990</small>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                  <div class="card h-100 mb-4 shadow-sm" id="txtProduc4">
+                    <img src="img/stock/polera/Polerablanca.jpg" height="auto" class="card-img-top" alt="Producto 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Polera</h5>
+                      <p class="card-text">Polera Blanca con estampado. Relaxed fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                        </div>
+                      <small class="text-muted">$19.990</small>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                  <div class="card h-100 mb-4 shadow-sm" id="txtProduc5">
+                    <img src="img/stock/polera/poleranegra.jpg" height="auto" class="card-img-top" alt="Producto 5">
+                    <div class="card-body">
+                      <h5 class="card-title">Polera</h5>
+                      <p class="card-text">Polera negra. Relaxed fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                        </div>
+                      <small class="text-muted">$13.990</small>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="py-4 col-sm-12 col-md-4 col-lg-4">
+                  <div class="card h-100 mb-4 shadow-sm"id="txtProduc6">
+                    <img src="img/stock/poleron/poleronnaranja.jpg" height="auto" class="card-img-top" alt="Producto 6">
+                    <div class="card-body">
+                      <h5 class="card-title">poleron</h5>
+                      <p class="card-text">Poleron naranja con estampado. Regular fit</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <input type="button" class="btn btn-primary btnAgregarCarrito" value="Agregar">
+                        </div>
+                      <small class="text-muted">$23.000</small>
+                      </div>
+                    </div>
+                  </div>
+            </div>
           </div>
-        <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-            <div class="card h-100 mb-4 shadow-sm">
-                <img src="img/stock/jeans/jinclaro.jpg" height="auto" class="card-img-top" alt="Producto 2">
-                <div class="card-body">
-                    <h5 class="card-title">Jeans</h5>
-                    <p class="card-text">Jeans mezclilla</p>
-                    <div class="d-flex justify-content-between align-items-center" >
-                    <div class="btn-group">
-                        <a class="btn btn-primary" href="#" role="button">Ver</a>
-                        <a class="btn btn-primary" href="#" role="button">Agregar al carrito</a>
-                    </div>
-                    <small class="text-muted">$29.990</small>
-                </div>
-                </div>
-            </div>
-            </div>
-        <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-            <div class="card h-100 mb-4 shadow-sm">
-                <img src="img/stock/polera/poleraazul.jpg" height="Auto" class="card-img-top" alt="Producto 3">
-                <div class="card-body">
-                    <h5 class="card-title">Polera</h5>
-                    <p class="card-text">Polera Azul con estampado. Oversize Fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <a class="btn btn-primary" href="#" role="button">Ver</a>
-                        <a class="btn btn-primary" href="#" role="button">Agregar al carrito</a>
-                    </div>
-                    <small class="text-muted">$19.990</small>
-                </div>
-                </div>
-            </div>
-            </div>
-        <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-                <div class="card h-100 mb-4 shadow-sm">
-                <img src="img/stock/polera/Polerablanca.jpg" height="auto" class="card-img-top" alt="Producto 4">
-                <div class="card-body">
-                    <h5 class="card-title">Polera</h5>
-                    <p class="card-text">Polera Blanca con estampado. Relaxed fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <a class="btn btn-primary" href="#" role="button">Ver</a>
-                        <a class="btn btn-primary" href="#" role="button">Agregar al carrito</a>
-                    </div>
-                    <small class="text-muted">$19.990</small>
-                    </div>
-                </div>
-                </div>
-            </div>
-        <div class="py-4 ccol-sm-12 col-md-4 col-lg-4">
-                <div class="card h-100 mb-4 shadow-sm">
-                <img src="img/stock/polera/poleranegra.jpg" height="auto" class="card-img-top" alt="Producto 5">
-                <div class="card-body">
-                    <h5 class="card-title">Polera</h5>
-                    <p class="card-text">Polera negra. Relaxed fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <a class="btn btn-primary" href="#" role="button">Ver</a>
-                        <a class="btn btn-primary" href="#" role="button">Agregar al carrito</a>
-                    </div>
-                    <small class="text-muted">$13.990</small>
-                    </div>
-                </div>
-                </div>
-            </div>
-        <div class="py-4 col-sm-12 col-md-4 col-lg-4">
-                <div class="card h-100 mb-4 shadow-sm">
-                <img src="img/stock/poleron/poleronnaranja.jpg" height="auto" class="card-img-top" alt="Producto 6">
-                <div class="card-body">
-                    <h5 class="card-title">poleron</h5>
-                    <p class="card-text">Poleron naranja con estampado. Regular fit</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <a class="btn btn-primary" href="#" role="button">Ver</a>
-                        <a class="btn btn-primary" href="#" role="button">Agregar al carrito</a>
-                    </div>
-                    <small class="text-muted">$23.000</small>
-                    </div>
-                </div>
-                </div>
-            </div>
+        </div>
       </div>
-
-  
-
-   
-
-
+        
   <!-- FOOTER -->
   <footer class="container">
     <p class="float-end"><a href="#">Back to top</a></p>
@@ -308,6 +236,8 @@
   </footer>
 </main>
 <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/productos.js"></script>
+
 
     </body>
 </html>
